@@ -1,0 +1,69 @@
+---
+title: "fine-tune-lab"
+slug: "fine-tune-lab"
+tagline: "LoRA/QLoRA fine-tuning and distillation for cheaper inference."
+repo: "https://github.com/MarcosRos002/fine-tune-lab"
+demoUrl: null
+stack:
+  - "Python"
+  - "PyTorch"
+  - "PEFT/LoRA"
+  - "QLoRA"
+  - "Distillation"
+  - "Docker"
+metrics:
+  precision: "TBD"
+  recall: "TBD"
+  latencyP50: "TBD"
+  latencyP95: "TBD"
+  costPerRequest: "TBD"
+status: "in progress"
+---
+
+> fine-tune-lab produces the cheap, task-specialized model that claims-auditor
+> routes low-stakes calls to. Metrics compare the distilled model against the
+> teacher on the target task.
+
+## Metrics
+
+| Metric | Value |
+| --- | --- |
+| Precision | TBD |
+| Recall | TBD |
+| Latency P50 | TBD |
+| Latency P95 | TBD |
+| Cost / request | TBD |
+
+## Problem
+
+Large models are accurate but expensive. Many requests are "easy" and don't
+need the biggest model. We want a small model that matches the teacher on the
+target task at a fraction of the cost and latency.
+
+## Approach
+
+LoRA/QLoRA fine-tuning and distillation from a larger teacher onto a small
+student, evaluated against the teacher on the target distribution. The winning
+checkpoint becomes the cheap tier in claims-auditor's model router.
+
+## Architecture
+
+_TODO: architecture diagram._ Data prep → LoRA/QLoRA training → distillation →
+eval vs teacher → export checkpoint for routing.
+
+## ADR highlights
+
+- _TODO_: QLoRA vs full fine-tune (free-tier GPU constraints).
+- _TODO_: distillation target and teacher choice.
+- _TODO_: acceptance criteria for promoting a student model.
+
+## Failure modes
+
+- _TODO_: student underperforms on tail/hard cases → routing guardrails.
+- _TODO_: distribution shift between training data and production claims.
+
+## Links
+
+- Source: https://github.com/MarcosRos002/fine-tune-lab
+- Feeds cheap model to: [claims-auditor](https://github.com/MarcosRos002/claims-auditor)
+- Live demo: _coming soon_

@@ -1,0 +1,77 @@
+---
+title: "claims-auditor — Veritas"
+slug: "claims-auditor"
+tagline: "Multimodal medical-billing audit agent that flags improper claims."
+repo: "https://github.com/MarcosRos002/claims-auditor"
+demoUrl: null
+stack:
+  - "Python"
+  - "Claude Agent SDK"
+  - "LangGraph"
+  - "MCP"
+  - "pgvector RAG"
+  - "FastAPI"
+  - "Docker"
+metrics:
+  precision: "TBD"
+  recall: "TBD"
+  latencyP50: "TBD"
+  latencyP95: "TBD"
+  costPerRequest: "TBD"
+status: "in progress"
+---
+
+> Flagship project. Metrics below lead the case study and will be filled from
+> `agent-lens` eval runs once they exist.
+
+## Metrics
+
+| Metric | Value |
+| --- | --- |
+| Precision | TBD |
+| Recall | TBD |
+| Latency P50 | TBD |
+| Latency P95 | TBD |
+| Cost / request | TBD |
+
+## Problem
+
+Medical-billing claims contain improper, miscoded, or non-covered charges. Manual
+audit is slow and inconsistent; the inputs are multimodal (structured records plus
+unstructured PDFs and scanned images) and the rules are dense. The goal is an agent
+that flags improper claims with **high recall** (don't miss bad claims) while keeping
+**cost-per-claim** low enough to run at scale.
+
+## Approach
+
+An agentic system built on the Claude Agent SDK and orchestrated with LangGraph:
+ingest the claim, extract structured fields from documents, retrieve relevant
+coding/coverage rules via hybrid RAG over pgvector, reason over them, and emit
+explainable flags with citations. Cheap/easy cases are routed to a small model
+(supplied by `fine-tune-lab`) to control cost.
+
+## Architecture
+
+_TODO: architecture diagram._ High level: ingestion → document extraction →
+hybrid RAG retrieval (pgvector) → agent reasoning (tools via MCP) → flag +
+citation output. Served behind FastAPI, containerized with Docker.
+
+## ADR highlights
+
+- _TODO_: why an agent (LangGraph) over a single prompt.
+- _TODO_: hybrid RAG on pgvector vs a managed vector DB (free-tier constraint).
+- _TODO_: model routing (cheap distilled model from fine-tune-lab) to cut cost.
+- _TODO_: two-pass classification + ASR pipeline for audio-bearing inputs.
+
+## Failure modes
+
+- _TODO_: hallucinated rule citations → mitigation (citation verification).
+- _TODO_: OCR/extraction errors on low-quality scans.
+- _TODO_: recall/precision trade-off under cost caps.
+
+## Links
+
+- Source: https://github.com/MarcosRos002/claims-auditor
+- Measured by: [agent-lens](https://github.com/MarcosRos002/agent-lens)
+- Cheap model from: [fine-tune-lab](https://github.com/MarcosRos002/fine-tune-lab)
+- Live demo: _coming soon_

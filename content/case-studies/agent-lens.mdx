@@ -1,0 +1,68 @@
+---
+title: "agent-lens"
+slug: "agent-lens"
+tagline: "Evaluation + observability for LLM agents."
+repo: "https://github.com/MarcosRos002/agent-lens"
+demoUrl: null
+stack:
+  - "Python"
+  - "LangSmith"
+  - "Prometheus"
+  - "Grafana"
+  - "FastAPI"
+  - "Docker"
+metrics:
+  precision: "TBD"
+  recall: "TBD"
+  latencyP50: "TBD"
+  latencyP95: "TBD"
+  costPerRequest: "TBD"
+status: "in progress"
+---
+
+> agent-lens is the instrument that produces the numbers the other case studies
+> lead with. The metrics below are its own overhead/throughput figures.
+
+## Metrics
+
+| Metric | Value |
+| --- | --- |
+| Precision | TBD |
+| Recall | TBD |
+| Latency P50 | TBD |
+| Latency P95 | TBD |
+| Cost / request | TBD |
+
+## Problem
+
+Agents are hard to trust without measurement. You need offline eval suites,
+online tracing, and latency/cost visibility — plus regression gates so quality
+doesn't silently drift between commits.
+
+## Approach
+
+A small eval + observability toolkit: dataset-driven offline evals
+(precision/recall, task-success), online tracing via LangSmith, and
+latency/cost dashboards via Prometheus + Grafana. Regression gates run in CI.
+
+## Architecture
+
+_TODO: architecture diagram._ Eval runner + trace exporter → metrics store
+(Prometheus) → dashboards (Grafana). FastAPI surface for triggering eval runs.
+
+## ADR highlights
+
+- _TODO_: LangSmith for tracing vs rolling our own.
+- _TODO_: Prometheus/Grafana on free-tier infra.
+- _TODO_: what counts as a regression gate (thresholds).
+
+## Failure modes
+
+- _TODO_: eval-set drift / overfitting to the eval set.
+- _TODO_: judge-model variance in LLM-as-judge scoring.
+
+## Links
+
+- Source: https://github.com/MarcosRos002/agent-lens
+- Measures: [claims-auditor](https://github.com/MarcosRos002/claims-auditor)
+- Live demo: _coming soon_
