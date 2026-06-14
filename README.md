@@ -22,12 +22,14 @@ Next.js (App Router) · TypeScript · Tailwind CSS · MDX · deployed on Vercel.
 
 > Dependencies are not installed yet (Phase 0 scaffold). First run:
 
+This project uses **pnpm** (never npm/npx).
+
 ```bash
-npm install
-npm run dev        # http://localhost:3000
+pnpm install
+pnpm dev           # http://localhost:3000
 ```
 
-Other scripts: `npm run build`, `npm run start`, `npm run lint`.
+Other scripts: `pnpm build`, `pnpm start`, `pnpm lint`.
 
 ## Project structure
 

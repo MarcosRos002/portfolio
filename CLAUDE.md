@@ -32,14 +32,14 @@ Relationship: claims-auditor is measured by agent-lens, fed a cheap model by fin
 
 ## How to run
 
-> Dependencies are **NOT installed yet** (Phase 0 scaffolded files manually, no `npm install` was run). First clone needs:
+> Dependencies are **NOT installed yet** (Phase 0 scaffolded files manually, no `pnpm install` was run). First clone needs:
 
 ```bash
-npm install      # install deps from package.json (not yet run)
-npm run dev      # local dev server at http://localhost:3000
-npm run build    # production build (what Vercel runs)
-npm run start    # serve the production build
-npm run lint     # next lint
+pnpm install     # install deps from package.json (not yet run; creates pnpm-lock.yaml)
+pnpm dev         # local dev server at http://localhost:3000
+pnpm build       # production build (what Vercel runs)
+pnpm start       # serve the production build
+pnpm lint        # next lint
 ```
 
 ## Content model (the content contract)
@@ -68,6 +68,7 @@ public/              # CVs + og-image go here later (see docs/context/handoff.md
 
 ## Conventions
 
+- **Package manager: pnpm only — never use npm or npx. Run `pnpm install`, `pnpm dev`, etc.** (use `pnpm dlx <tool>` in place of `npx <tool>`).
 - Contract-first: the content model in `docs/content-model.md` is the contract; `lib/projects.ts` and the MDX frontmatter must conform.
 - Docs are context infrastructure — keep them current as the site evolves.
 - 100% free-tier (Vercel Hobby). No paid services.

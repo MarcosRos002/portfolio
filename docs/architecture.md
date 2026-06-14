@@ -50,9 +50,9 @@ have a hosted UI.
 ## Deployment (Vercel, free)
 
 - Connect the GitHub repo to a Vercel project; Next.js is zero-config on Vercel.
-- `npm run build` is what Vercel runs; output is served from the Hobby tier.
+- `pnpm build` is what Vercel runs; output is served from the Hobby tier.
 - No environment variables required for the static/SSG content in Phase 0/1.
 - Custom domain optional; the default `*.vercel.app` URL works for the live link.
 
-> Dependencies are not installed yet. `npm install` is required on first checkout
-> before `npm run dev` / `npm run build` will work.
+> Dependencies are not installed yet. `pnpm install` is required on first checkout
+> before `pnpm dev` / `pnpm build` will work.

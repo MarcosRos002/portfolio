@@ -25,6 +25,10 @@ on **Vercel Hobby (free)**.
   content, not code, with typed frontmatter. Separates content from layout.
 - **Vercel Hobby** — zero-config Next.js hosting on the free tier; default
   `*.vercel.app` URL is sufficient for the live link.
+- **pnpm** as the package manager (pinned via `packageManager: pnpm@9.15.0` in
+  `package.json`, with project-level `.npmrc`). Chosen for fast, disk-efficient
+  installs and a strict, deterministic `node_modules`. **Project convention: pnpm
+  only — never npm or npx** (use `pnpm dlx` instead of `npx`).
 
 ## Consequences
 

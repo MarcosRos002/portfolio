@@ -4,7 +4,7 @@
 
 Scaffolded the full structure, real docs, the content model, typed project
 metadata, case-study MDX outlines, and minimal valid Next.js stubs. **No
-`npm install` was run** and no UI was built beyond placeholder stubs. The value of
+`pnpm install` was run** and no UI was built beyond placeholder stubs. The value of
 Phase 0 is **context-readiness**: a fresh Claude Code session can open this repo
 and have everything it needs to build the site.
 
@@ -24,7 +24,10 @@ and have everything it needs to build the site.
 
 ## Next steps (Phase 1)
 
-1. `npm install` to pull deps from `package.json` (none installed yet).
+1. `pnpm install` to pull deps from `package.json` (none installed yet). This
+   creates `pnpm-lock.yaml` on first run — no lockfile is committed yet.
+   **Use pnpm only — never npm/npx** (the project pins `pnpm@9.15.0` via the
+   `packageManager` field; see `.npmrc` for pnpm settings).
 2. Implement **layout + hero** (real styling with Tailwind), then `Nav`/`Footer`.
 3. Implement the **3 case-study pages from MDX**: wire `lib/mdx.ts` with
    `gray-matter` + `next-mdx-remote`, render metrics first then the MDX body.
