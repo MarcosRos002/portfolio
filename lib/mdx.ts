@@ -6,7 +6,10 @@
  * the content contract (docs/content-model.md), and return { frontmatter, content }
  * so the dynamic route can render it with next-mdx-remote.
  *
- * Kept as a typed stub so the app compiles in Phase 0 without the deps wired up.
+ * Kept as a typed stub so the app compiles without MDX deps wired up. Case
+ * studies currently render from the typed metadata in lib/projects.ts, so no MDX
+ * runtime is installed. If MDX bodies are added later, use next-mdx-remote >= 6
+ * (v5 has a critical RCE advisory that Vercel blocks at deploy time) + gray-matter.
  */
 
 import type { Metric, ProjectStatus } from "./projects";
