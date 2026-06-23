@@ -31,12 +31,11 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                {/* TODO: confirm LinkedIn handle. */}
                 <a
-                  href="https://www.linkedin.com/in/marcos-rostan"
+                  href="https://www.linkedin.com/in/marcosrostan"
                   className="ink-link mono text-[0.84rem]"
                 >
-                  linkedin ↗
+                  linkedin.com/in/marcosrostan ↗
                 </a>
               </li>
             </ul>
