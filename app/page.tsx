@@ -1,4 +1,5 @@
 import { Hero } from "@/components/Hero";
+import { AuditBench } from "@/components/AuditBench";
 import { CaseFile } from "@/components/CaseFile";
 import { SkillLedger } from "@/components/SkillLedger";
 import { projects } from "@/lib/projects";
@@ -10,6 +11,27 @@ export default function HomePage() {
   return (
     <div>
       <Hero />
+
+      {/* ── Live demo ── */}
+      <section id="demo" className="border-b border-[var(--rule)]">
+        <div className="mx-auto max-w-dossier px-5 py-16 md:px-8 md:py-24">
+          <header className="max-w-2xl">
+            <p className="label">Live demo — runs in your browser, $0</p>
+            <h2 className="mt-4 font-serif text-[2rem] tracking-tight md:text-[2.6rem]">
+              Audit a claim yourself.
+            </h2>
+            <p className="mt-4 text-ink/85">
+              Pick a claim or edit one, and watch Veritas flag the inconsistencies
+              with cited reasons — the same deterministic logic that scores{" "}
+              <span className="mono text-[0.95em]">P&nbsp;0.997 / R&nbsp;1.000</span>{" "}
+              in the repo, recomputing as you type.
+            </p>
+          </header>
+          <div className="mt-10">
+            <AuditBench />
+          </div>
+        </div>
+      </section>
 
       {/* ── The work ── */}
       <section id="work" className="mx-auto max-w-dossier px-5 py-16 md:px-8 md:py-24">
