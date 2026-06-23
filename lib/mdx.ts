@@ -9,7 +9,7 @@
  * Kept as a typed stub so the app compiles in Phase 0 without the deps wired up.
  */
 
-import type { ProjectMetrics, ProjectStatus } from "./projects";
+import type { Metric, ProjectStatus } from "./projects";
 
 /** Frontmatter shape — must match docs/content-model.md. */
 export interface CaseStudyFrontmatter {
@@ -19,7 +19,7 @@ export interface CaseStudyFrontmatter {
   repo: string;
   demoUrl: string | null;
   stack: string[];
-  metrics: ProjectMetrics;
+  metrics: Metric[];
   status: ProjectStatus;
 }
 
